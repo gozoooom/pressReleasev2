@@ -1,51 +1,82 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { Metadata } from "next";
 
-import { useState, useEffect } from "react";
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-import "./../app/app.css";
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
-import "@aws-amplify/ui-react/styles.css";
+export const metadata: Metadata = {
+  title: "Zoooom Newsroom",
+  description: "Zoooom Accelerates Automotive Market Transformation with its Digital Garage and Visionary End-to-End Car Ownership Platform.",
+  openGraph: {
+    title: "Zoooom Newsroom",
+    description: "Zoooom Accelerates Automotive Market Transformation with its Digital Garage and Visionary End-to-End Car Ownership Platform.",
+    url: "https://newsroom.zoooom.me",
+    siteName: "Zoooom Newsroom",
+    images: [
+      {
+        url: "https://newsroom.zoooom.me/hero-press-release.png",
+        width: 1200,
+        height: 630,
+        alt: "Zoooom Digital Garage",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zoooom Newsroom",
+    description: "Zoooom Accelerates Automotive Market Transformation with its Digital Garage and Visionary End-to-End Car Ownership Platform.",
+    images: ["https://newsroom.zoooom.me/hero-press-release.png"],
+  },
+  keywords: [
+    "Zoooom",
+    "automotive",
+    "digital garage",
+    "car ownership",
+    "vehicle management",
+    "car maintenance",
+    "peer-to-peer marketplace",
+    "private party car sales",
+    "automotive",
+    "auto finance",
+    "car service",
+    "car maintenance",
+    "maintenance records",
+    "vehicle history",
+    "p2p car sales",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
-Amplify.configure(outputs);
-
-const client = generateClient<Schema>();
-
-export default function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
-
-  useEffect(() => {
-    listTodos();
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
-    });
-  }
-
+export default function HomePage() {
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
+    <main className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="flex justify-center">
+        <Image
+          src="/hero-press-release.png"
+          alt="Zoooom Digital Garage"
+          width={600}
+          height={400}
+          className="rounded shadow-lg"
+          priority
+        />
+      </div>
       <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
+        <span className="uppercase text-gray-500 text-sm">Product</span>
+        <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
+          Zoooom Accelerates Automotive Market Transformation with its Digital Garage and Visionary End-to-End Car Ownership Platform
+        </h1>
+        <br></br>
+        <p className="text-gray-700 mb-6">
+          Introducing the industry's first free and comprehensive end-to-end automotive management platform, empowering car owners with integrated digital management services, trusted peer-to-peer transactions, and streamlined financing solutions.
+        </p>
+        <Link href="/press/zoooom-digital-garage-launch">
+          <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+            Read More
+          </button>
+        </Link>
       </div>
     </main>
   );
