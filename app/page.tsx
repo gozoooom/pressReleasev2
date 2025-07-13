@@ -65,7 +65,7 @@ export default function HomePage() {
       </div>
       <div>
         <span className="uppercase text-gray-500 text-sm">Product</span>
-        <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
+        <h1 className="text-2xl md:text-3xl font-bold mt-2 mb-4">
           Zoooom Accelerates Automotive Market Transformation with its Digital Garage and Visionary End-to-End Car Ownership Platform
         </h1>
         <br></br>
