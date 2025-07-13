@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://newsroom.zoooom.me/press/zoooom-digital-garage-launch",
     images: [
       {
-        url: "https://newsroom.zoooom.me/images/digital-garage-hero.png",
+        url: "https://newsroom.zoooom.me/digital-garage-hero.png",
         width: 1200,
         height: 630,
         alt: "Zoooom Digital Garage",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zoooom Unveils Visionary Digital Garage Transforming Car Ownership",
     description: "Zoooom announces the Digital Garage platform and shares its vision for transforming car ownership and P2P transactions.",
-    images: ["https://newsroom.zoooom.me/images/digital-garage-hero.png"],
+    images: ["https://newsroom.zoooom.me/digital-garage-hero.png"],
   },
     keywords: [
     "Zoooom",
